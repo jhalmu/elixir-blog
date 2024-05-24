@@ -3,6 +3,7 @@
 ## New start from differend source
 
 - Learining bit by bit. I write more... in blog when it is ready
+- Not yet functioning at all albait including functions in functional form
 
 To start your Phoenix server:
 
