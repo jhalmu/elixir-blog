@@ -39,7 +39,7 @@ defmodule BlogWeb.StoryLive.Index do
 
   @impl true
   def handle_event("delete", %{"id" => id}, socket) do
-    story = Stories.get_story!(id, socket.assigngs.current_user.id)
+    story = Stories.get_story!(id, socket.assigns.current_user.id)
     {:ok, _} = Stories.delete_story(story)
 
     {:noreply, stream_delete(socket, :stories, story)}
