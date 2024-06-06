@@ -20,7 +20,7 @@ defmodule BlogWeb.Router do
   scope "/", BlogWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", StoryLive.Home, :home
   end
 
   # Other scopes may use custom stacks.
@@ -72,10 +72,13 @@ defmodule BlogWeb.Router do
       live "/stories", StoryLive.Index, :index
       live "/stories/new", StoryLive.Index, :new
       live "/stories/:id/edit", StoryLive.Index, :edit
-
-      live "/stories/:id", StoryLive.Show, :show
-      live "/stories/:id/show/edit", StoryLive.Show, :edit
     end
+  end
+
+  scope "/", BlogWeb do
+    pipe_through :browser
+
+    live "/stories/:id", StoryLive.Show, :show
   end
 
   scope "/", BlogWeb do
