@@ -1,4 +1,8 @@
 defmodule Blog.Accounts.UserToken do
+  @moduledoc """
+  Accounts user token schema
+  """
+
   use Ecto.Schema
   import Ecto.Query
   alias Blog.Accounts.UserToken

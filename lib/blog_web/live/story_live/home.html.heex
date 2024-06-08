@@ -10,7 +10,7 @@
   <:col :let={{_id, story}} label="Title"><%= story.title %></:col>
   <:col :let={{_id, story}} label="Body"><%= story.body %></:col>
   <:col :let={{_id, story}} label="Name"><%= story.user.name %></:col>
-  <:action :let={{id, story}}>
+  <:action :let={{_id, story}}>
     <.link navigate={~p"/stories/#{story}"}>Read more...</.link>
   </:action>
 </.table>

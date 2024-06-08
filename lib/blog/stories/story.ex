@@ -1,4 +1,8 @@
 defmodule Blog.Stories.Story do
+  @moduledoc """
+  Stories schema for the Blog application.
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
