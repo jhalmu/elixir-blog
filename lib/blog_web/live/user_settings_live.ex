@@ -29,7 +29,7 @@ defmodule BlogWeb.UserSettingsLive do
             required
           />
           <:actions>
-            <.button phx-disable-with="Changing...">Change Email</.button>
+            <.button phx-disable-with="Changing...">Change Email or Name</.button>
           </:actions>
         </.simple_form>
       </div>
@@ -88,14 +88,17 @@ defmodule BlogWeb.UserSettingsLive do
 
   def mount(_params, _session, socket) do
     user = socket.assigns.current_user
+    # name_changeset = Accounts.change_user_name(user)
     email_changeset = Accounts.change_user_email(user)
     password_changeset = Accounts.change_user_password(user)
 
     socket =
       socket
+      |> assign(:current_name, nil)
       |> assign(:current_password, nil)
       |> assign(:email_form_current_password, nil)
       |> assign(:current_email, user.email)
+      # |> assign(:name_form, to_form(name_changeset))
       |> assign(:email_form, to_form(email_changeset))
       |> assign(:password_form, to_form(password_changeset))
       |> assign(:trigger_submit, false)

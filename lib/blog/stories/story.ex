@@ -5,7 +5,7 @@ defmodule Blog.Stories.Story do
   schema "stories" do
     field :title, :string
     field :body, :string
-    field :user_id, :id
+    belongs_to :user, Blog.Accounts.User
 
     timestamps(type: :utc_datetime)
   end

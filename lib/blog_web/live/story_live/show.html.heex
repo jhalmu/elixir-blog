@@ -6,6 +6,7 @@
 <.list>
   <:item title="Title"><%= @story.title %></:item>
   <:item title="Body"><%= @story.body %></:item>
+  <:item title="Name"><%= @story.user.name %></:item>
 </.list>
 
 <.back navigate={~p"/"}>Back to stories</.back>

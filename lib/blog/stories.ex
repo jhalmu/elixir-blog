@@ -18,7 +18,7 @@ defmodule Blog.Stories do
 
   """
   def list_stories do
-    Repo.all(Story)
+    Repo.all(Story) |> Repo.preload(:user)
   end
 
   def list_stories(user_id) do
@@ -39,7 +39,7 @@ defmodule Blog.Stories do
       ** (Ecto.NoResultsError)
 
   """
-  def get_story!(id), do: Repo.get!(Story, id)
+  def get_story!(id), do: Repo.get!(Story, id) |> Repo.preload(:user)
 
   def get_story!(id, user_id) do
     Repo.one(from s in Story, where: s.id == ^id and s.user_id == ^user_id)
